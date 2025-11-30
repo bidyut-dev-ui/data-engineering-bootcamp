@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./housing_model.joblib:/app/housing_model.joblib
+    environment:
+      - MODEL_PATH=/app/housing_model.joblib

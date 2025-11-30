@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: adv_sql_postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: adv_sql_db
+    ports:
+      - "5433:5432" # Mapping to 5433 to avoid conflict with week 5 if left running
+    volumes:
+      - adv_sql_data:/var/lib/postgresql/data
+
+volumes:
+  adv_sql_data:

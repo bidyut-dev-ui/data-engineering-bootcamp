@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - capstone_network
+
+  warehouse:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: warehouse
+      POSTGRES_PASSWORD: warehouse
+      POSTGRES_DB: warehouse_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - warehouse_data:/var/lib/postgresql/data
+    networks:
+      - capstone_network
+
+  airflow-webserver:
+    image: apache/airflow:2.7.1
+    command: webserver
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    ports:
+      - "8080:8080"
+    networks:
+      - capstone_network
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.1
+    command: scheduler
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    networks:
+      - capstone_network
+
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - warehouse
+    environment:
+      - DATABASE_URL=postgresql://warehouse:warehouse@warehouse:5432/warehouse_db
+    volumes:
+      - ./api:/app
+    networks:
+      - capstone_network
+
+networks:
+  capstone_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  warehouse_data:

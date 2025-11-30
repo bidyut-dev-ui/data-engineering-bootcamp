@@ -1,0 +1,35 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+    environment:
+      - DATABASE_URL=postgresql://user:password@warehouse_postgres:5432/warehouse_db
+    depends_on:
+      - warehouse_postgres
+    networks:
+      - warehouse_network
+
+  warehouse_postgres:
+    image: postgres:15-alpine
+    container_name: warehouse_postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: warehouse_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - warehouse_data:/var/lib/postgresql/data
+    networks:
+      - warehouse_network
+
+networks:
+  warehouse_network:
+    driver: bridge
+
+volumes:
+  warehouse_data:
+

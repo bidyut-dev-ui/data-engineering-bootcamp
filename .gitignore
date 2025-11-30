@@ -1,0 +1,117 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Data files (generated during tutorials)
+*.csv
+*.json
+*.jsonl
+*.parquet
+*.db
+*.sqlite
+*.sqlite3
+
+# Model files
+*.joblib
+*.pkl
+*.pickle
+*.h5
+*.pt
+*.pth
+
+# Logs
+*.log
+logs/
+*.out
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Docker
+.dockerignore
+
+# Airflow
+airflow.db
+airflow.cfg
+airflow-webserver.pid
+unittests.cfg
+webserver_config.py
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Large data directories
+data/raw/
+data/processed/
+data/models/
+
+# Exceptions - Keep example data
+!projects/*/data/.gitkeep
+!**/example_data.csv
+
+# Keep README and documentation
+!README.md
+!**/README.md
+!**/*.md
+
+# Keep requirements files
+!requirements.txt
+!**/requirements.txt
+
+# Keep configuration examples
+!**/*example*.yml
+!**/*example*.yaml
+!**/*example*.json
+
+# Keep Dockerfiles
+!Dockerfile
+!**/Dockerfile
+!docker-compose.yml
+!**/docker-compose.yml
+
+# Keep Python source files
+!*.py
+
+# Keep project structure
+!projects/*/
