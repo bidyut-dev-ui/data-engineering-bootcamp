@@ -54,6 +54,17 @@ venv.bak/
 *.pt
 *.pth
 
+
+# Generated Visualizations
+plots/
+figures/
+images/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+
 # Logs
 *.log
 logs/

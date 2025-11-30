@@ -24,6 +24,7 @@ Master the fundamentals of data manipulation and cleaning.
 - Week 1: Environment Setup (WSL2, Docker, Python)
 - Week 1.5: **Python Deep Dive** (Iterators, Generators, Context Managers)
 - Week 2: Pandas Basics (CSV/JSON/Parquet, cleaning, aggregation)
+- Week 2.5: **Exploratory Data Analysis** (Profiling, Visualization with Seaborn/Matplotlib, Data Quality)
 - Week 3: Advanced Pandas (memory optimization, chunking for large files)
 - Week 3.5: **Linux & Bash** (Permissions, SSH, Text Processing)
 - Week 4: **Project 1** - CLI Data Cleaning Tool
@@ -41,6 +42,7 @@ Automate and monitor data pipelines.
 - Week 9-10: Airflow Setup & Configuration
 - Week 11: Robust DAGs (Error handling, Retries, XComs)
 - Week 12: **Project 3** - Weather ETL Pipeline
+- Week 12.5: **Schema Evolution** (Handling changes, JSON validation)
 
 ### **Month 4: API Development**
 Expose data and models via REST APIs.

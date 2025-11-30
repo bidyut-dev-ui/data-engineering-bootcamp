@@ -54,6 +54,7 @@ Whenever I paste this block, continue from the last unfinished milestone.
 - [x] **Month 1, Week 1**: Environment Setup (WSL2, Docker, Python venv) - COMPLETED.
 - [x] **Month 1, Week 1.5**: Python Deep Dive (Iterators, Lambdas, etc.) - COMPLETED.
 - [x] **Month 1, Week 2**: Pandas Basics - COMPLETED.
+- [x] **Month 1, Week 2.5**: Exploratory Data Analysis (EDA) - COMPLETED.
 - [x] **Month 1, Week 3**: Advanced Pandas & NumPy - COMPLETED.
 - [x] **Month 1, Week 3.5**: Linux & Bash Fundamentals - COMPLETED.
 - [x] **Month 1, Week 4**: Mini-Project 1: The Data Janitor - COMPLETED.
@@ -63,6 +64,7 @@ Whenever I paste this block, continue from the last unfinished milestone.
 - [x] **Month 2, Week 8**: Mini-Project 2: Warehouse Builder - COMPLETED.
 - [x] **Month 2, Week 8.5**: Data Reliability (ACID, Idempotency) - COMPLETED.
 - [x] **Month 3, Weeks 9-12**: Orchestration (Airflow) - COMPLETED.
+- [x] **Month 3, Week 12.5**: Schema Evolution & Data Contracts - COMPLETED.
 - [x] **Month 4, Weeks 13-16**: API Development (FastAPI) - COMPLETED.
 - [x] **Month 4, Week 16.5**: Statistics Fundamentals - COMPLETED.
 - [x] **Month 5, Week 17**: Scikit-learn Basics - COMPLETED.

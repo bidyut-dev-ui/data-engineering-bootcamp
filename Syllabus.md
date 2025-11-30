@@ -9,6 +9,8 @@
 - **Week 1**: Environment Setup (WSL2, Docker, VS Code) & Python Refresher (Types, Virtual Envs).
 - **Week 1.5**: **Python Deep Dive for Pandas** (Iterators, Comprehensions, Unpacking, Context Managers, Lambdas). *Critical prerequisite!*
 - **Week 2**: Data Manipulation with Pandas (Reading/Writing CSV/JSON/Parquet, Cleaning, Aggregating).
+- **Week 2.5**: **Exploratory Data Analysis (EDA)** (Profiling, Visualizing Distributions, Correlation, Data Quality Checks). *Critical for understanding data.*
+    - *Tools: Seaborn, Matplotlib (Boxplots, Heatmaps, Pairplots).*
 - **Week 3**: Advanced Pandas & NumPy (Performance optimization for low RAM, chunking).
 - **Week 3.5**: **Linux & Bash for Data Engineers** (Permissions, Process Management, SSH, Text Processing with grep/sed/awk). *Critical for Airflow/Docker debugging.*
 - **Week 4**: Mini-Project 1: **"The Data Janitor"** - CLI tool to ingest raw messy logs, clean them, and save as Parquet.
@@ -27,6 +29,7 @@
 - **Week 10**: Setting up Airflow locally (Docker Compose optimized for low RAM).
 - **Week 11**: Building robust DAGs (Error handling, Retries, XComs).
 - **Week 12**: Mini-Project 3: **"Orchestrated ETL"** - Airflow DAG to fetch weather API data, process it, and load to Postgres.
+- **Week 12.5**: **Schema Evolution & Data Contracts** (Handling schema changes, JSON validation, Backward compatibility). *Critical for long-term maintenance.*
 
 ## Month 4: API Development & Model Serving
 *Focus: Exposing data and logic.*
