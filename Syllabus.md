@@ -1,8 +1,8 @@
-# Data Engineering & AI/ML Learning Syllabus (6 Months)
+# Data Engineering & AI/ML Learning Syllabus (7 Months)
 
-**Goal**: Transition from Ruby/JS to Data Engineering (Service-based companies).
+**Goal**: Transition from Ruby/JS to Data Engineering Team Lead (Service-based companies).
 **Constraints**: 8GB RAM, No GPU, CPU-only, WSL2 Ubuntu.
-**Focus**: Hands-on, local, runnable projects.
+**Focus**: Hands-on, local, runnable projects with production-grade patterns.
 
 ## Month 1: Python for Data Engineering & Data Processing
 *Focus: Mastering the tools of the trade on limited hardware.*
@@ -47,3 +47,10 @@
 - **Week 24**: Final Polish, Docker Compose for everything.
 - **Week 25**: Resume Building (Translating projects to bullet points).
 - **Week 26**: Mock Interview Prep (Common DE questions).
+
+## Month 7: Production Engineering & Team Leadership
+*Focus: Building secure, observable, production-grade systems for team lead roles.*
+- **Week 27**: Security & Authentication (JWT in FastAPI, RBAC, API keys, Secrets management).
+- **Week 28**: Testing & Data Quality (Pytest, Great Expectations, Integration tests, Coverage).
+- **Week 29**: Observability & Monitoring (Prometheus, Grafana, Structured logging, Alerting).
+- **Week 30**: CI/CD & Deployment (GitHub Actions, Automated testing, Docker registry, Deployment automation).
