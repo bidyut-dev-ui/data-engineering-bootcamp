@@ -22,8 +22,10 @@ By the end of this bootcamp, you'll have:
 ### **Month 1: Python & Data Processing**
 Master the fundamentals of data manipulation and cleaning.
 - Week 1: Environment Setup (WSL2, Docker, Python)
+- Week 1.5: **Python Deep Dive** (Iterators, Generators, Context Managers)
 - Week 2: Pandas Basics (CSV/JSON/Parquet, cleaning, aggregation)
 - Week 3: Advanced Pandas (memory optimization, chunking for large files)
+- Week 3.5: **Linux & Bash** (Permissions, SSH, Text Processing)
 - Week 4: **Project 1** - CLI Data Cleaning Tool
 
 ### **Month 2: Databases & SQL**
@@ -32,6 +34,7 @@ Learn to design and query data warehouses.
 - Week 6: Advanced SQL (CTEs, Window Functions, Indexing)
 - Week 7: Data Modeling (Star Schema, Normalization)
 - Week 8: **Project 2** - ETL to Data Warehouse
+- Week 8.5: **Data Reliability** (ACID, Idempotency, Transactions)
 
 ### **Month 3: Orchestration with Airflow**
 Automate and monitor data pipelines.
@@ -44,6 +47,7 @@ Expose data and models via REST APIs.
 - Week 13: FastAPI Fundamentals
 - Week 14: Database Integration
 - Week 15-16: **Project 4** - Data Warehouse API
+- Week 16.5: **Statistics Fundamentals** (Distributions, Outliers, Bias)
 
 ### **Month 5: Machine Learning**
 Train and deploy ML models on CPU.

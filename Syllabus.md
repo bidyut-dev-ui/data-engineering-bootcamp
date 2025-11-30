@@ -7,8 +7,10 @@
 ## Month 1: Python for Data Engineering & Data Processing
 *Focus: Mastering the tools of the trade on limited hardware.*
 - **Week 1**: Environment Setup (WSL2, Docker, VS Code) & Python Refresher (Types, Virtual Envs).
+- **Week 1.5**: **Python Deep Dive for Pandas** (Iterators, Comprehensions, Unpacking, Context Managers, Lambdas). *Critical prerequisite!*
 - **Week 2**: Data Manipulation with Pandas (Reading/Writing CSV/JSON/Parquet, Cleaning, Aggregating).
 - **Week 3**: Advanced Pandas & NumPy (Performance optimization for low RAM, chunking).
+- **Week 3.5**: **Linux & Bash for Data Engineers** (Permissions, Process Management, SSH, Text Processing with grep/sed/awk). *Critical for Airflow/Docker debugging.*
 - **Week 4**: Mini-Project 1: **"The Data Janitor"** - CLI tool to ingest raw messy logs, clean them, and save as Parquet.
 
 ## Month 2: Databases & SQL
@@ -17,6 +19,7 @@
 - **Week 6**: Advanced SQL (CTEs, Window Functions, Indexing).
 - **Week 7**: Data Modeling (Star/Snowflake schemas, Normalization).
 - **Week 8**: Mini-Project 2: **"Warehouse Builder"** - ETL script to load CSVs into a Postgres Star Schema.
+- **Week 8.5**: **Data Reliability Engineering** (ACID Transactions, Idempotency, Handling Partial Failures). *Critical for production pipelines.*
 
 ## Month 3: Orchestration & Pipelines (ETL/ELT)
 *Focus: Automating workflows.*
@@ -31,6 +34,7 @@
 - **Week 14**: Connecting FastAPI to Databases.
 - **Week 15**: Dockerizing FastAPI applications.
 - **Week 16**: Mini-Project 4: **"Data API Service"** - REST API to query the Data Warehouse created in Month 2.
+- **Week 16.5**: **Statistics for Data Engineers** (Distributions, Outliers, Sampling Bias, Basic Stats). *Critical prerequisite for ML.*
 
 ## Month 5: Machine Learning & AI on CPU
 *Focus: Practical ML without heavy compute.*
