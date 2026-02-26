@@ -21,13 +21,14 @@
 - **Week 6**: Advanced SQL (CTEs, Window Functions, Indexing).
 - **Week 7**: Data Modeling (Star/Snowflake schemas, Normalization).
 - **Week 8**: Mini-Project 2: **"Warehouse Builder"** - ETL script to load CSVs into a Postgres Star Schema.
-- **Week 8.5**: **Data Reliability Engineering** (ACID Transactions, Idempotency, Handling Partial Failures). *Critical for production pipelines.*
+- **Week 8.5**: **Data Reliability Engineering** (ACID Transactions, Idempotency, Handling Partial Failures). *Critical for production pipelines.* `#role-datacompany-senior` `#skill-reliability`
 
 ## Month 3: Orchestration & Pipelines (ETL/ELT)
 *Focus: Automating workflows.*
 - **Week 9**: Introduction to Apache Airflow (Core concepts: DAGs, Operators, Sensors).
 - **Week 10**: Setting up Airflow locally (Docker Compose optimized for low RAM).
-- **Week 11**: Building robust DAGs (Error handling, Retries, XComs).
+- **Week 11**: Building robust DAGs (Error handling, Retries, XComs). `#role-datacompany-senior` `#skill-reliability`
+- **Week 11.5**: **Cloud-Native & NoSQL Analytics** (AWS S3, DynamoDB, IAM via LocalStack). `#role-datacompany-senior` `#skill-aws`
 - **Week 12**: Mini-Project 3: **"Orchestrated ETL"** - Airflow DAG to fetch weather API data, process it, and load to Postgres.
 - **Week 12.5**: **Schema Evolution & Data Contracts** (Handling schema changes, JSON validation, Backward compatibility). *Critical for long-term maintenance.*
 
@@ -36,6 +37,7 @@
 - **Week 13**: FastAPI Fundamentals (Routes, Pydantic models, Async).
 - **Week 14**: Connecting FastAPI to Databases.
 - **Week 15**: Dockerizing FastAPI applications.
+- **Week 15.5**: **Event-Driven & Streaming Pipelines** (Redpanda, real-time ingestion, aggregations). `#role-datacompany-senior` `#skill-streaming`
 - **Week 16**: Mini-Project 4: **"Data API Service"** - REST API to query the Data Warehouse created in Month 2.
 - **Week 16.5**: **Statistics for Data Engineers** (Distributions, Outliers, Sampling Bias, Basic Stats). *Critical prerequisite for ML.*
 
@@ -57,7 +59,7 @@
 
 ## Month 7: Production Engineering & Team Leadership
 *Focus: Building secure, observable, production-grade systems for team lead roles.*
-- **Week 27**: Security & Authentication (JWT in FastAPI, RBAC, API keys, Secrets management).
+- **Week 27**: Security & Authentication (JWT in FastAPI, RBAC, API keys, Secrets management, PII masking, Encryption). `#role-datacompany-senior` `#skill-security`
 - **Week 28**: Testing & Data Quality (Pytest, Great Expectations, Integration tests, Coverage).
-- **Week 29**: Observability & Monitoring (Prometheus, Grafana, Structured logging, Alerting).
+- **Week 29**: Observability & Monitoring (Prometheus, Grafana, Structured logging, Alerting, Incident Runbooks). `#role-datacompany-senior` `#skill-reliability`
 - **Week 30**: CI/CD & Deployment (GitHub Actions, Automated testing, Docker registry, Deployment automation).

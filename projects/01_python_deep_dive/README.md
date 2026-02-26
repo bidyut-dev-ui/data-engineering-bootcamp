@@ -1,6 +1,6 @@
 # Week 1.5: Python Deep Dive for Pandas
 
-**Goal**: Master the Python concepts that Pandas relies on heavily. Your colleague is right - these are essential before diving into Pandas!
+**Goal**: Master the Python concepts that Pandas relies on heavily. These are essential before diving into Pandas!
 
 ## Why This Matters
 

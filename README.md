@@ -163,20 +163,20 @@ All projects run on 8GB RAM. Learn to optimize for real-world constraints.
 
 ## 📊 Project Highlights
 
-### **Capstone: Customer Analytics Platform**
+### **Capstone: Wealth Management Data Platform**
 A complete end-to-end system featuring:
 - Daily ETL pipeline (Airflow)
 - Star schema data warehouse (Postgres)
-- Churn prediction model (RandomForest)
-- REST API for predictions (FastAPI)
+- Transaction anomaly detection model (RandomForest)
+- REST API for secure data access (FastAPI)
 - Full stack orchestration (Docker Compose)
 
 **Skills Demonstrated**: System design, ETL, ML deployment, API development
 
-### **Data Warehouse Builder**
+### **Trade Data Warehouse Builder**
 Production-ready ETL pipeline:
-- Ingests CSV files from multiple sources
-- Transforms and validates data
+- Ingests trade CSV files from multiple sources
+- Transforms and validates financial data
 - Loads into optimized star schema
 - Handles errors and retries
 
@@ -199,10 +199,9 @@ Containerized ML service:
 - ATS-friendly formatting
 - [Resume Guide](projects/18_job_prep/RESUME_GUIDE.md)
 
-### **Interview Prep**
+### **Interview Prep & Job Mapping**
 - 26 common Data Engineer questions with answers
-- SQL query practice
-- System design patterns
+- **Searchable Job Targeting**: We store specific target roles in `projects/18_job_prep/job_descriptions/`. Search the repo for tags like `#role-datacompany-senior` or `#skill-streaming` to highlight exactly which weeks you must complete to pass that specific interview.
 - Behavioral questions (STAR method)
 - [Interview Questions](projects/18_job_prep/INTERVIEW_QUESTIONS.md)
 

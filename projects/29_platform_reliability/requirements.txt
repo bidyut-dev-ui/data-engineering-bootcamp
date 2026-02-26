@@ -1,0 +1,4 @@
+[require]
+great_expectations = ">=0.17.15"
+pandas = ">=2.0.3"
+SQLAlchemy = ">=2.0.20"
