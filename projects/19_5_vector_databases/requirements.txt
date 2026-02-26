@@ -1,0 +1,6 @@
+langchain==0.0.315
+psycopg2-binary==2.9.9
+pgvector==0.2.3
+sentence-transformers==2.2.2
+SQLAlchemy==2.0.21
+numpy==1.26.0

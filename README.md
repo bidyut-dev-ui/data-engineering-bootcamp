@@ -17,6 +17,21 @@ By the end of this bootcamp, you'll have:
 - ✅ **End-to-End Platform** integrating all components
 - ✅ **Portfolio** ready for Data Engineer interviews
 
+## 🚀 Roles & Skills You Will Master
+This bootcamp is strictly mapped to demanding, real-world tech stacks. Rather than just learning the syntax of Python, you will build systems that prepare you for:
+
+### **1. Enterprise Data Engineering & ETL**
+- **Core Skills:** Designing fault-tolerant ETL/ELT pipelines, Data Modeling, and Star Schemas.
+- **The Tech Stack:** **Apache Airflow** for DAG orchestration, and **PostgreSQL** Data Warehouses (teaching the core analytical concepts you will need for cloud engines like **Snowflake**, **Databricks**, or **AWS Redshift**).
+
+### **2. Generative AI & ML Engineering**
+- **Core Skills:** Retrieval-Augmented Generation (RAG), Mathematical Embeddings, and Similarity Search.
+- **The Tech Stack:** **LangChain**, Local CPU Models, **FastAPI** model serving, and **Vector Databases** (mastering the math behind Vector Search locally via **pgvector** before you pay for cloud equivalents like **Pinecone** or **Weaviate**).
+
+### **3. Streaming & Cloud-Native Platforms**
+- **Core Skills:** Real-time event ingestion, NoSQL modeling, and Cloud Architectures.
+- **The Tech Stack:** **Kafka** (running the low-RAM C++ alternative **Redpanda**), and **AWS Services** (mocking **S3**, **DynamoDB**, and **IAM** entirely locally via **LocalStack**).
+
 ## 📚 Curriculum Overview
 
 ### **Month 1: Python & Data Processing**
@@ -119,15 +134,20 @@ data-engineering-bootcamp/
     ├── 06_data_modeling/        # Week 7
     ├── 07_warehouse_builder/    # Week 8 - Project 2
     ├── 08_airflow_platform/     # Weeks 9-12 - Project 3
+    ├── 11_aws_localstack/       # Week 11.5 - AWS Mocking
     ├── 09_fastapi_basics/       # Week 13
     ├── 10_fastapi_db/           # Week 14
+    ├── 15_5_streaming_redpanda/ # Week 15.5 - Real-time Streaming
     ├── 12_data_api_service/     # Weeks 15-16 - Project 4
     ├── 13_sklearn_basics/       # Week 17
     ├── 14_model_evaluation/     # Week 18
     ├── 15_langchain_basics/     # Week 19
+    ├── 19_5_vector_databases/   # Week 19.5 - RAG
     ├── 16_predictive_service/   # Week 20 - Project 5
     ├── 17_capstone/             # Weeks 21-24 - Capstone
-    └── 18_job_prep/             # Weeks 25-26
+    ├── 18_job_prep/             # Weeks 25-26
+    ├── 27_security_and_governance/ # Week 27 - IAM & PII Masking
+    └── 29_platform_reliability/ # Week 29 - Incident Runbooks
 ```
 
 Each project contains:
@@ -201,15 +221,17 @@ Containerized ML service:
 
 ### **Interview Prep & Job Mapping**
 - 26 common Data Engineer questions with answers
-- **Searchable Job Targeting**: We store specific target roles in `projects/18_job_prep/job_descriptions/`. Search the repo for tags like `#role-datacompany-senior` or `#skill-streaming` to highlight exactly which weeks you must complete to pass that specific interview.
+- **Searchable Job Targeting**: We store specific target roles in `projects/18_job_prep/job_descriptions/`. Search the repo for tags like `#role-datacompany-senior` or `#role-genai-engineer` to highlight exactly which weeks you must complete to pass that specific interview.
 - Behavioral questions (STAR method)
 - [Interview Questions](projects/18_job_prep/INTERVIEW_QUESTIONS.md)
 
 ### **Portfolio Showcase**
 Frame your projects for recruiters:
-- "Built automated ETL pipeline reducing processing time by 80%"
+- "Built automated Airflow pipeline reducing data processing time by 80%"
 - "Designed star schema warehouse supporting 50+ analytical queries"
-- "Deployed ML model serving 10K+ predictions daily"
+- "Deployed ML model serving 10K+ predictions daily via FastAPI"
+- "Implemented RAG pipeline searching 1M+ vectors locally via pgvector"
+- "Built real-time transaction ingestion pipeline handling 5K msgs/sec with Redpanda"
 
 ## 🎯 Target Audience
 
