@@ -3,9 +3,10 @@
 > A complete, hands-on curriculum for transitioning from software development to Data Engineering. Built for **8GB RAM, CPU-only** environments. No cloud costs, no GPU required.
 
 [![Status](https://img.shields.io/badge/Status-Complete-success)]()
-[![Projects](https://img.shields.io/badge/Projects-18-blue)]()
+[![Projects](https://img.shields.io/badge/Projects-21-blue)]()
 [![Duration](https://img.shields.io/badge/Duration-6%20Months-orange)]()
 [![License](https://img.shields.io/badge/License-MIT-green)]()
+[![PySpark](https://img.shields.io/badge/PySpark-8GB%20RAM%20Optimized-yellow)]()
 
 ## 🎯 What You'll Build
 
@@ -40,6 +41,7 @@ Master the fundamentals of data manipulation and cleaning.
 - Week 1.5: **Python Deep Dive** (Iterators, Generators, Context Managers)
 - Week 2: Pandas Basics (CSV/JSON/Parquet, cleaning, aggregation)
 - Week 2.5: **Exploratory Data Analysis** (Profiling, Visualization with Seaborn/Matplotlib, Data Quality)
+- Week 2.75: **PySpark Basics for 8GB RAM** (Distributed processing on limited hardware)
 - Week 3: Advanced Pandas (memory optimization, chunking for large files)
 - Week 3.5: **Linux & Bash** (Permissions, SSH, Text Processing)
 - Week 4: **Project 1** - CLI Data Cleaning Tool
@@ -59,25 +61,27 @@ Automate and monitor data pipelines.
 - Week 12: **Project 3** - Weather ETL Pipeline
 - Week 12.5: **Schema Evolution** (Handling changes, JSON validation)
 
-### **Month 4: API Development**
-Expose data and models via REST APIs.
-- Week 13: FastAPI Fundamentals
-- Week 14: Database Integration
-- Week 15-16: **Project 4** - Data Warehouse API
-- Week 16.5: **Statistics Fundamentals** (Distributions, Outliers, Bias)
+### **Month 4: API Development & Advanced PySpark**
+Expose data and models via REST APIs while mastering distributed processing.
+- Week 13: **Advanced PySpark Part 1** (Catalyst Optimizer, Memory Management)
+- Week 14: **Advanced PySpark Part 2** (Join Strategies, MLlib, Streaming)
+- Week 15: FastAPI Fundamentals
+- Week 16: Database Integration with FastAPI
+- Week 17: **Project 4** - Data Warehouse API with PySpark Integration
+- Week 17.5: **Statistics Fundamentals** (Distributions, Outliers, Bias)
 
-### **Month 5: Machine Learning**
-Train and deploy ML models on CPU.
-- Week 17: Scikit-learn (Regression, Classification)
-- Week 18: Model Evaluation & Serialization
-- Week 19: LangChain Basics (Prompt Engineering, RAG)
-- Week 20: **Project 5** - ML Prediction Service
+### **Month 5: Machine Learning & AI**
+Train and deploy ML models on CPU with PySpark integration.
+- Week 18: Scikit-learn (Regression, Classification)
+- Week 19: Model Evaluation & Serialization
+- Week 20: LangChain Basics (Prompt Engineering, RAG)
+- Week 21: **Project 5** - ML Prediction Service with PySpark MLlib
 
 ### **Month 6: Capstone & Job Prep**
 Integrate everything and prepare for interviews.
-- Week 21-24: **Capstone** - Customer Analytics Platform
-- Week 25: Resume Building & Portfolio
-- Week 26: Interview Preparation (26 common questions)
+- Week 22-25: **Capstone** - Customer Analytics Platform with PySpark
+- Week 26: Resume Building & Portfolio
+- Week 27: Interview Preparation (PySpark & Data Engineering questions)
 
 📖 **[View Full Syllabus](Syllabus.md)**
 
@@ -128,6 +132,7 @@ data-engineering-bootcamp/
     ├── 00_setup_and_refresher/  # Week 1
     ├── 01_pandas_basics/        # Week 2
     ├── 02_advanced_pandas/      # Week 3
+    ├── 02_5_pyspark_basics/     # Week 2.75 - PySpark Basics for 8GB RAM
     ├── 03_data_janitor/         # Week 4 - Project 1
     ├── 04_databases_docker/     # Week 5
     ├── 05_advanced_sql/         # Week 6
@@ -135,19 +140,20 @@ data-engineering-bootcamp/
     ├── 07_warehouse_builder/    # Week 8 - Project 2
     ├── 08_airflow_platform/     # Weeks 9-12 - Project 3
     ├── 11_aws_localstack/       # Week 11.5 - AWS Mocking
-    ├── 09_fastapi_basics/       # Week 13
-    ├── 10_fastapi_db/           # Week 14
-    ├── 15_5_streaming_redpanda/ # Week 15.5 - Real-time Streaming
-    ├── 12_data_api_service/     # Weeks 15-16 - Project 4
-    ├── 13_sklearn_basics/       # Week 17
-    ├── 14_model_evaluation/     # Week 18
-    ├── 15_langchain_basics/     # Week 19
-    ├── 19_5_vector_databases/   # Week 19.5 - RAG
-    ├── 16_predictive_service/   # Week 20 - Project 5
-    ├── 17_capstone/             # Weeks 21-24 - Capstone
-    ├── 18_job_prep/             # Weeks 25-26
-    ├── 27_security_and_governance/ # Week 27 - IAM & PII Masking
-    └── 29_platform_reliability/ # Week 29 - Incident Runbooks
+    ├── 03_pyspark_advanced/     # Weeks 13-14 - Advanced PySpark
+    ├── 09_fastapi_basics/       # Week 15
+    ├── 10_fastapi_db/           # Week 16
+    ├── 15_5_streaming_redpanda/ # Week 16.5 - Real-time Streaming
+    ├── 12_data_api_service/     # Weeks 17-18 - Project 4
+    ├── 13_sklearn_basics/       # Week 19
+    ├── 14_model_evaluation/     # Week 20
+    ├── 15_langchain_basics/     # Week 21
+    ├── 19_5_vector_databases/   # Week 21.5 - RAG
+    ├── 16_predictive_service/   # Week 22 - Project 5
+    ├── 17_capstone/             # Weeks 23-26 - Capstone
+    ├── 18_job_prep/             # Weeks 27-28
+    ├── 27_security_and_governance/ # Week 29 - IAM & PII Masking
+    └── 29_platform_reliability/ # Week 30 - Incident Runbooks
 ```
 
 Each project contains:

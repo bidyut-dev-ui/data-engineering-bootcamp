@@ -1,0 +1,5 @@
+pyspark==3.5.3
+pandas==2.3.3
+numpy==2.3.5
+pyarrow==22.0.0
+fastparquet==2024.11.0
