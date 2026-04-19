@@ -1,0 +1,5 @@
+# Python Fundamentals - Minimal dependencies
+# Only standard library is required for this project
+
+# No external packages needed for basic Python
+# This file is kept for consistency with other projects

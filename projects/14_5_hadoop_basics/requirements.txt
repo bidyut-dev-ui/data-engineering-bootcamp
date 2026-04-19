@@ -1,0 +1,15 @@
+# Hadoop & Big Data dependencies for 8GB RAM
+mrjob==0.7.4
+hdfs==2.7.0
+pyhive==0.6.5
+thrift==0.16.0
+pyspark>=3.5.0  # For Spark integration
+pandas>=2.0.0   # For data generation
+numpy>=1.24.0
+
+# Docker and utilities
+docker>=6.0.0
+python-dotenv>=1.0.0
+
+# Note: Hadoop itself runs in Docker containers
+# These Python libraries are for interacting with Hadoop services

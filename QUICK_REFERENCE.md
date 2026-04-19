@@ -4,29 +4,49 @@
 ```
 AI-ML/
 ├── Prompt.md                    # Context reset prompt
-├── Syllabus.md                  # 6-month roadmap
+├── Syllabus.md                  # 7-month roadmap
 ├── README.md                    # Main documentation
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Git ignore rules
 └── projects/
+    ├── 00_5_python_fundamentals/ # Week 0.5
     ├── 00_setup_and_refresher/  # Week 1
+    ├── 01_python_deep_dive/     # Week 1.5
     ├── 01_pandas_basics/        # Week 2
+    ├── 02_5_eda/                # Week 2.5
+    ├── 02_5_pyspark_basics/     # Week 2.75
     ├── 02_advanced_pandas/      # Week 3
+    ├── 03_5_linux_bash/         # Week 3.5
     ├── 03_data_janitor/         # Week 4
     ├── 04_databases_docker/     # Week 5
     ├── 05_advanced_sql/         # Week 6
     ├── 06_data_modeling/        # Week 7
     ├── 07_warehouse_builder/    # Week 8
+    ├── 08_5_data_reliability/   # Week 8.5
     ├── 08_airflow_platform/     # Weeks 9-12
-    ├── 09_fastapi_basics/       # Week 13
-    ├── 10_fastapi_db/           # Week 14
-    ├── 12_data_api_service/     # Weeks 15-16
-    ├── 13_sklearn_basics/       # Week 17
-    ├── 14_model_evaluation/     # Week 18
-    ├── 15_langchain_basics/     # Week 19
-    ├── 16_predictive_service/   # Week 20
+    ├── 11_aws_localstack/       # Week 11.5
+    ├── 12_5_schema_evolution/   # Week 12.5
+    ├── 03_pyspark_advanced/     # Weeks 13-14
+    ├── 14_5_hadoop_basics/      # Week 14.5
+    ├── 09_fastapi_basics/       # Week 15
+    ├── 10_fastapi_db/           # Week 16
+    ├── 15_5_streaming_redpanda/ # Week 16.5
+    ├── 12_data_api_service/     # Week 17
+    ├── 16_5_statistics/         # Week 17.5
+    ├── 13_sklearn_basics/       # Week 18
+    ├── 14_model_evaluation/     # Week 19
+    ├── 19_5_django_basics/      # Week 19.5
+    ├── 19_75_vector_databases/  # Week 19.75
+    ├── 15_langchain_basics/     # Week 20
+    ├── 16_predictive_service/   # Week 21
     ├── 17_capstone/             # Weeks 21-24
-    └── 18_job_prep/             # Weeks 25-26
+    ├── 18_job_prep/             # Weeks 25-26
+    ├── 27_security_and_governance/ # Week 27
+    ├── 19_secure_api/           # Week 27
+    ├── 20_tested_pipeline/      # Week 28
+    ├── 21_monitored_platform/   # Week 29
+    ├── 22_cicd_pipeline/        # Week 30
+    └── 29_platform_reliability/ # Week 30
 ```
 
 ## Common Commands
@@ -91,7 +111,7 @@ Generated data files (ignored by git):
 cd /home/bidyut/MyWorkspace/AI-ML
 git init
 git add .
-git commit -m "Initial commit: Complete 6-month Data Engineering curriculum"
+git commit -m "Initial commit: Complete 7-month Data Engineering & AI/ML curriculum"
 ```
 
 ### What Gets Committed
@@ -154,15 +174,18 @@ If Docker runs out of memory:
 ## Resume & Interview Prep
 
 ### Key Projects to Highlight
-1. **Capstone** (Week 21-24): Full end-to-end platform
+1. **Capstone** (Weeks 21-24): Full end-to-end platform
 2. **Warehouse Builder** (Week 8): ETL and data modeling
 3. **Predictive Service** (Week 20): ML deployment
+4. **Security & API** (Week 27): Production-grade security implementation
+5. **Monitoring Platform** (Week 29): Observability and incident response
 
 ### Interview Focus Areas
 - SQL queries (practice on paper)
 - ETL concepts (explain your pipelines)
 - System design (draw diagrams)
 - Behavioral (use STAR method)
+- PySpark optimization (for 8GB RAM environments)
 
 ## Resources
 
@@ -176,10 +199,11 @@ If Docker runs out of memory:
 - Airflow docs: https://airflow.apache.org/docs/
 - FastAPI docs: https://fastapi.tiangolo.com/
 - Scikit-learn docs: https://scikit-learn.org/
+- PySpark docs: https://spark.apache.org/docs/latest/api/python/
 
 ## Next Steps
 
-1. ✅ Curriculum complete
+1. ✅ Curriculum complete (7 months)
 2. ⏭️ Start learning: `cd projects/00_setup_and_refresher`
 3. ⏭️ Commit to git
 4. ⏭️ Begin Week 1

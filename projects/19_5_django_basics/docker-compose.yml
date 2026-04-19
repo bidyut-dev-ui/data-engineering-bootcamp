@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # PostgreSQL database for production simulation
+  postgres:
+    image: postgres:15-alpine
+    container_name: django_postgres
+    environment:
+      POSTGRES_DB: data_dashboard
+      POSTGRES_USER: django_user
+      POSTGRES_PASSWORD: django_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U django_user -d data_dashboard"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # Memory limits for 8GB RAM
+    mem_limit: 512m
+    mem_reservation: 256m
+    cpus: '0.5'
+
+  # Django application (optional - can run locally for development)
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django_app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://django_user:django_pass@postgres:5432/data_dashboard
+      DJANGO_SETTINGS_MODULE: data_dashboard.settings.docker
+      DJANGO_SECRET_KEY: development-secret-key-change-in-production
+      DJANGO_DEBUG: "True"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py load_sample_data &&
+             gunicorn data_dashboard.wsgi:application --bind 0.0.0.0:8000 --workers 2 --threads 2"
+    # Memory limits for 8GB RAM
+    mem_limit: 1g
+    mem_reservation: 512m
+    cpus: '1.0'
+    restart: unless-stopped
+
+  # Redis for caching (optional, lightweight)
+  redis:
+    image: redis:7-alpine
+    container_name: django_redis
+    ports:
+      - "6379:6379"
+    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
+    # Minimal memory for caching
+    mem_limit: 256m
+    mem_reservation: 128m
+    cpus: '0.25'
+
+  # pgAdmin for database management (optional)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: django_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@data-dashboard.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    # Lightweight admin interface
+    mem_limit: 256m
+    mem_reservation: 128m
+    cpus: '0.25'
+
+volumes:
+  postgres_data:
+    driver: local
+  static_volume:
+    driver: local
+  media_volume:
+    driver: local
+
+networks:
+  default:
+    name: django_network
+    driver: bridge
+
+# Configuration notes for 8GB RAM:
+# 1. Total memory allocation: ~2GB (PostgreSQL 512MB + Django 1GB + Redis 256MB + pgAdmin 256MB)
+# 2. Leaves ~6GB for OS, browser, and other development tools
+# 3. Alpine images used for smaller footprint
+# 4. CPU limits prevent any single service from consuming all CPU
+# 5. For development, you can run Django locally and only use PostgreSQL container

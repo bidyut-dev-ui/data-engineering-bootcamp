@@ -1,10 +1,10 @@
-# Data Engineering Bootcamp: Zero to Production in 6 Months
+# Data Engineering Bootcamp: Zero to Production in 7 Months
 
 > A complete, hands-on curriculum for transitioning from software development to Data Engineering. Built for **8GB RAM, CPU-only** environments. No cloud costs, no GPU required.
 
 [![Status](https://img.shields.io/badge/Status-Complete-success)]()
-[![Projects](https://img.shields.io/badge/Projects-21-blue)]()
-[![Duration](https://img.shields.io/badge/Duration-6%20Months-orange)]()
+[![Projects](https://img.shields.io/badge/Projects-30+-blue)]()
+[![Duration](https://img.shields.io/badge/Duration-7%20Months-orange)]()
 [![License](https://img.shields.io/badge/License-MIT-green)]()
 [![PySpark](https://img.shields.io/badge/PySpark-8GB%20RAM%20Optimized-yellow)]()
 
@@ -17,6 +17,7 @@ By the end of this bootcamp, you'll have:
 - ✅ **ML Model Serving** via FastAPI
 - ✅ **End-to-End Platform** integrating all components
 - ✅ **Portfolio** ready for Data Engineer interviews
+- ✅ **Production Engineering Skills** for team lead roles
 
 ## 🚀 Roles & Skills You Will Master
 This bootcamp is strictly mapped to demanding, real-world tech stacks. Rather than just learning the syntax of Python, you will build systems that prepare you for:
@@ -37,6 +38,7 @@ This bootcamp is strictly mapped to demanding, real-world tech stacks. Rather th
 
 ### **Month 1: Python & Data Processing**
 Master the fundamentals of data manipulation and cleaning.
+- Week 0.5: **Python Fundamentals** (Variables, Data Types, Control Flow, Functions, Data Structures) *For complete beginners*
 - Week 1: Environment Setup (WSL2, Docker, Python)
 - Week 1.5: **Python Deep Dive** (Iterators, Generators, Context Managers)
 - Week 2: Pandas Basics (CSV/JSON/Parquet, cleaning, aggregation)
@@ -65,8 +67,10 @@ Automate and monitor data pipelines.
 Expose data and models via REST APIs while mastering distributed processing.
 - Week 13: **Advanced PySpark Part 1** (Catalyst Optimizer, Memory Management)
 - Week 14: **Advanced PySpark Part 2** (Join Strategies, MLlib, Streaming)
+- Week 14.5: **Hadoop Fundamentals** (HDFS, MapReduce, YARN on 8GB RAM)
 - Week 15: FastAPI Fundamentals
 - Week 16: Database Integration with FastAPI
+- Week 16.5: **Event-Driven & Streaming Pipelines** (Redpanda, real-time ingestion)
 - Week 17: **Project 4** - Data Warehouse API with PySpark Integration
 - Week 17.5: **Statistics Fundamentals** (Distributions, Outliers, Bias)
 
@@ -74,14 +78,26 @@ Expose data and models via REST APIs while mastering distributed processing.
 Train and deploy ML models on CPU with PySpark integration.
 - Week 18: Scikit-learn (Regression, Classification)
 - Week 19: Model Evaluation & Serialization
+- Week 19.5: **Django for Data Applications** (Web framework for data dashboards)
+- Week 19.75: **Vector Databases & RAG** (Similarity Search, pgvector)
 - Week 20: LangChain Basics (Prompt Engineering, RAG)
 - Week 21: **Project 5** - ML Prediction Service with PySpark MLlib
 
 ### **Month 6: Capstone & Job Prep**
 Integrate everything and prepare for interviews.
-- Week 22-25: **Capstone** - Customer Analytics Platform with PySpark
+- Week 22: Capstone Planning & Architecture
+- Week 23: Implementation: Ingest & Clean (Airflow)
+- Week 24: Implementation: Model & Serve (FastAPI + LangChain RAG)
+- Week 25: Final Polish, Docker Compose for everything
 - Week 26: Resume Building & Portfolio
 - Week 27: Interview Preparation (PySpark & Data Engineering questions)
+
+### **Month 7: Production Engineering & Team Leadership**
+Build secure, observable, production-grade systems.
+- Week 28: Security & Authentication (JWT, RBAC, PII masking)
+- Week 29: Testing & Data Quality (Pytest, Great Expectations)
+- Week 30: Observability & Monitoring (Prometheus, Grafana, Alerting)
+- Week 31: CI/CD & Deployment (GitHub Actions, Docker registry)
 
 📖 **[View Full Syllabus](Syllabus.md)**
 
@@ -125,7 +141,7 @@ python 01_basics_tutorial.py
 ```
 data-engineering-bootcamp/
 ├── README.md                    # You are here
-├── Syllabus.md                  # Detailed 6-month roadmap
+├── Syllabus.md                  # Detailed 7-month roadmap
 ├── QUICK_REFERENCE.md           # Commands & troubleshooting
 ├── requirements.txt             # Python dependencies
 └── projects/
@@ -168,7 +184,7 @@ Each project contains:
 Every concept is taught through executable code. No theory-only lessons.
 
 ### **Progressive Complexity**
-Each week builds on previous skills. By Week 26, you're integrating 6 months of learning.
+Each week builds on previous skills. By Week 31, you're integrating 7 months of learning.
 
 ### **Production Patterns**
 Learn industry best practices: Docker, error handling, logging, testing.
@@ -178,14 +194,16 @@ All projects run on 8GB RAM. Learn to optimize for real-world constraints.
 
 ## 🛠️ Technologies Covered
 
-**Languages**: Python, SQL, Bash  
-**Data Processing**: Pandas, NumPy  
-**Databases**: PostgreSQL, SQLite  
-**Orchestration**: Apache Airflow  
-**APIs**: FastAPI, REST  
-**ML/AI**: Scikit-learn, LangChain  
-**DevOps**: Docker, Docker Compose  
-**Tools**: Git, Linux, VS Code  
+**Languages**: Python, SQL, Bash
+**Data Processing**: Pandas, NumPy, PySpark, Hadoop
+**Databases**: PostgreSQL, SQLite
+**Orchestration**: Apache Airflow
+**APIs**: FastAPI, REST, Django
+**ML/AI**: Scikit-learn, LangChain, PySpark MLlib
+**DevOps**: Docker, Docker Compose, GitHub Actions
+**Tools**: Git, Linux, VS Code
+**Monitoring**: Prometheus, Grafana
+**Security**: JWT, RBAC, PII masking
 
 ## 📊 Project Highlights
 
@@ -217,6 +235,15 @@ Containerized ML service:
 
 **Skills Demonstrated**: ML deployment, API design, containerization
 
+### **Production Monitoring Platform**
+Enterprise-grade observability:
+- Prometheus metrics collection
+- Grafana dashboards
+- Structured logging
+- Alerting and incident response
+
+**Skills Demonstrated**: Monitoring, observability, production engineering
+
 ## 💼 Career Preparation
 
 ### **Resume Building**
@@ -238,6 +265,7 @@ Frame your projects for recruiters:
 - "Deployed ML model serving 10K+ predictions daily via FastAPI"
 - "Implemented RAG pipeline searching 1M+ vectors locally via pgvector"
 - "Built real-time transaction ingestion pipeline handling 5K msgs/sec with Redpanda"
+- "Implemented production monitoring with Prometheus/Grafana reducing MTTR by 60%"
 
 ## 🎯 Target Audience
 
@@ -247,6 +275,7 @@ Frame your projects for recruiters:
 - ✅ Budget-conscious learners (no cloud costs)
 - ✅ Those with limited hardware (8GB RAM)
 - ✅ Job seekers targeting service-based companies (TCS, Accenture, etc.)
+- ✅ Aspiring team leads needing production engineering skills
 
 ### **Not Ideal For:**
 - ❌ Complete programming beginners (assumes Python/coding basics)
