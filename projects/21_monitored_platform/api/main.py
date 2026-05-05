@@ -35,6 +35,14 @@ pipeline_errors = Counter(
     ['error_type']
 )
 
+# --- CHALLENGE: Added Metrics ---
+db_query_duration = Histogram(
+    'db_query_duration_seconds', 
+    'Database query duration in seconds'
+)
+cache_hits = Counter('cache_hits_total', 'Total cache hits')
+cache_misses = Counter('cache_misses_total', 'Total cache misses')
+
 # Middleware to track metrics
 @app.middleware("http")
 async def metrics_middleware(request, call_next):
@@ -83,6 +91,19 @@ def process_data(records: int = 100):
         "status": "success",
         "records_processed": records
     }
+
+@app.get("/data/cached")
+def get_cached_data(key: str):
+    """Problem: Monitor cache hit rate for performance tuning."""
+    if random.random() > 0.3:
+        cache_hits.inc()
+        return {"source": "cache", "data": "value"}
+    else:
+        cache_misses.inc()
+        # Simulate slow DB call
+        with db_query_duration.time():
+            time.sleep(random.uniform(0.1, 0.3))
+        return {"source": "db", "data": "value"}
 
 @app.get("/data/error")
 def simulate_error():

@@ -124,6 +124,22 @@ class TestSalesData:
         assert len(issues) > 0  # Should detect negative amount
         assert any('negative' in issue.lower() for issue in issues)
 
+    @pytest.mark.parametrize("amount,expected_valid", [
+        (100.0, True),
+        (-10.0, False),
+        (0.0, False), # Our logic says > 0
+        (1000000.0, True)
+    ])
+    def test_clean_amount_edge_cases(self, amount, expected_valid):
+        """Problem: Ensure cleaning logic handles various amount edge cases correctly."""
+        df = pd.DataFrame({
+            'order_id': [1], 'customer_id': [101], 
+            'amount': [amount], 'order_date': ['2024-01-01']
+        })
+        cleaned = clean_sales_data(df)
+        is_valid = len(cleaned) == 1
+        assert is_valid == expected_valid
+
 if __name__ == "__main__":
     # Run tests
     pytest.main([__file__, "-v"])

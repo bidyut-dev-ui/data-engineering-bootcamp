@@ -855,4 +855,519 @@ def exercise_6_docker_containerization() -> Dict[str, Any]:
                 "file": "./secrets/api_key.txt"
             },
             "grafana_password": {
-                "file": "./secrets/grafana
+                "file": "./secrets/grafana_password.txt"
+            }
+        },
+        "networks": {
+            "customer_analytics_network": {
+                "driver": "bridge"
+            }
+        }
+    }
+    
+    return {
+        "docker_compose_config": docker_compose,
+        "deployment_notes": [
+            "Run with: docker-compose up -d",
+            "Access services:",
+            "  - Airflow UI: http://localhost:8080",
+            "  - FastAPI: http://localhost:8000/docs",
+            "  - Grafana: http://localhost:3000",
+            "  - PostgreSQL: localhost:5432",
+            "  - Redis: localhost:6379"
+        ],
+        "environment_setup": [
+            "Create ./secrets/ directory with password files",
+            "Set appropriate file permissions (chmod 600)",
+            "Build custom images: docker-compose build ml_api",
+            "Initialize database: docker-compose run --rm postgres psql -h postgres -U admin -d customer_analytics -f /docker-entrypoint-initdb.d/init.sql"
+        ]
+    }
+
+
+def exercise_7_monitoring_observability() -> Dict[str, Any]:
+    """
+    Exercise 7: Monitoring and Observability
+    
+    Design a monitoring system for the customer analytics platform that:
+    1. Collects metrics from all services (Airflow, API, database, ML model)
+    2. Implements logging and tracing
+    3. Sets up alerts for anomalies and failures
+    4. Creates dashboards for system health and business metrics
+    
+    Return the monitoring architecture and implementation plan.
+    """
+    print("\n" + "=" * 60)
+    print("EXERCISE 7: Monitoring and Observability")
+    print("=" * 60)
+    
+    monitoring_architecture = {
+        "metrics_collection": {
+            "prometheus": {
+                "scrape_targets": [
+                    "airflow:8080/metrics",
+                    "ml_api:8000/metrics",
+                    "postgres:9187",  # pg_exporter
+                    "redis:9121"      # redis_exporter
+                ],
+                "retention": "30d"
+            },
+            "exporters": [
+                "postgres_exporter for database metrics",
+                "redis_exporter for cache metrics",
+                "node_exporter for host metrics",
+                "custom metrics from FastAPI using prometheus_client"
+            ]
+        },
+        "logging": {
+            "centralized_logging": "ELK stack (Elasticsearch, Logstash, Kibana)",
+            "log_sources": [
+                "Airflow task logs",
+                "FastAPI application logs",
+                "PostgreSQL slow query logs",
+                "Docker container logs"
+            ],
+            "log_levels": {
+                "development": "DEBUG",
+                "production": "INFO"
+            }
+        },
+        "tracing": {
+            "distributed_tracing": "Jaeger",
+            "instrumented_services": ["FastAPI", "Airflow", "ML model inference"],
+            "trace_sampling_rate": "10% in production"
+        },
+        "alerting": {
+            "alert_manager": "Integrated with Prometheus",
+            "critical_alerts": [
+                "Pipeline failure for > 2 hours",
+                "API latency p99 > 500ms",
+                "Database connection pool > 90%",
+                "Churn prediction accuracy drop > 5%",
+                "Service downtime"
+            ],
+            "notification_channels": ["Slack", "PagerDuty", "Email"]
+        },
+        "dashboards": {
+            "grafana_dashboards": [
+                "System Health: CPU, memory, disk, network",
+                "Business Metrics: Customer count, churn rate, revenue",
+                "Pipeline Performance: ETL duration, success rate",
+                "ML Model: Prediction latency, accuracy, drift"
+            ]
+        }
+    }
+    
+    implementation_steps = [
+        "1. Deploy Prometheus and Grafana using Docker Compose",
+        "2. Configure exporters for each service",
+        "3. Instrument FastAPI with Prometheus metrics",
+        "4. Set up centralized logging with Filebeat → Elasticsearch",
+        "5. Configure alert rules in Prometheus",
+        "6. Create Grafana dashboards for each team",
+        "7. Test alerting with simulated failures"
+    ]
+    
+    return {
+        "monitoring_architecture": monitoring_architecture,
+        "implementation_steps": implementation_steps,
+        "key_metrics_to_track": [
+            {"metric": "etl_pipeline_duration", "threshold": "> 1 hour", "action": "Investigate slowdown"},
+            {"metric": "api_request_latency_p99", "threshold": "> 200ms", "action": "Optimize endpoints"},
+            {"metric": "churn_prediction_accuracy", "threshold": "< 85%", "action": "Retrain model"},
+            {"metric": "active_customers", "threshold": "Week-over-week drop > 5%", "action": "Business review"}
+        ]
+    }
+
+
+def exercise_8_testing_data_quality() -> Dict[str, Any]:
+    """
+    Exercise 8: Testing and Data Quality
+    
+    Design a testing strategy for the data platform that ensures:
+    1. Data quality checks at each pipeline stage
+    2. Unit and integration tests for ETL processes
+    3. ML model testing (accuracy, drift, bias)
+    4. API endpoint testing
+    5. End-to-end pipeline validation
+    
+    Return the testing framework and quality gates.
+    """
+    print("\n" + "=" * 60)
+    print("EXERCISE 8: Testing and Data Quality")
+    print("=" * 60)
+    
+    testing_strategy = {
+        "data_quality_checks": {
+            "completeness": "All required fields present",
+            "accuracy": "Values within expected ranges",
+            "consistency": "Data matches across sources",
+            "timeliness": "Data arrives within SLA",
+            "uniqueness": "No duplicate records",
+            "validity": "Data conforms to schema"
+        },
+        "test_levels": [
+            {
+                "level": "Unit Tests",
+                "scope": "Individual functions",
+                "tools": ["pytest", "unittest"],
+                "coverage_target": "> 80%"
+            },
+            {
+                "level": "Integration Tests",
+                "scope": "Service interactions",
+                "tools": ["pytest with Docker", "testcontainers"],
+                "coverage_target": "Critical paths only"
+            },
+            {
+                "level": "Data Quality Tests",
+                "scope": "ETL pipeline outputs",
+                "tools": ["Great Expectations", "dbt tests", "custom validators"],
+                "coverage_target": "100% of business rules"
+            },
+            {
+                "level": "ML Model Tests",
+                "scope": "Model performance",
+                "tools": ["sklearn test utilities", "evidently.ai", "MLflow"],
+                "coverage_target": "All performance metrics"
+            },
+            {
+                "level": "End-to-End Tests",
+                "scope": "Full pipeline",
+                "tools": ["Airflow integration tests", "API contract tests"],
+                "coverage_target": "Weekly execution"
+            }
+        ],
+        "quality_gates": [
+            "Data quality checks must pass before loading to warehouse",
+            "ML model accuracy must be > 85% to deploy",
+            "API endpoints must have < 100ms p95 latency",
+            "All unit tests must pass in CI/CD pipeline"
+        ]
+    }
+    
+    sample_tests = {
+        "data_quality": [
+            "test_customer_age_range: age between 18 and 100",
+            "test_email_format: valid email pattern",
+            "test_purchase_amount_positive: amount > 0",
+            "test_no_null_customer_ids: customer_id not null"
+        ],
+        "ml_model": [
+            "test_accuracy_baseline: accuracy > 0.85",
+            "test_fairness: equal opportunity difference < 0.1",
+            "test_drift: feature distribution shift < 5%",
+            "test_inference_speed: < 50ms per prediction"
+        ],
+        "api": [
+            "test_predict_endpoint: returns valid response",
+            "test_authentication: unauthorized access blocked",
+            "test_rate_limiting: too many requests rejected",
+            "test_batch_prediction: handles 1000 requests"
+        ]
+    }
+    
+    return {
+        "testing_strategy": testing_strategy,
+        "sample_tests": sample_tests,
+        "implementation_plan": [
+            "1. Set up pytest with fixtures for test data",
+            "2. Create data quality suite using Great Expectations",
+            "3. Implement ML model tests with cross-validation",
+            "4. Write API tests with FastAPI TestClient",
+            "5. Integrate tests into CI/CD pipeline",
+            "6. Schedule daily data quality runs",
+            "7. Set up alerts for test failures"
+        ]
+    }
+
+
+def exercise_9_ci_cd_pipeline() -> Dict[str, Any]:
+    """
+    Exercise 9: CI/CD Pipeline for Data Platform
+    
+    Design a CI/CD pipeline that automates:
+    1. Code quality checks and testing
+    2. Docker image building and publishing
+    3. Infrastructure as Code deployment
+    4. Database migration management
+    5. ML model deployment and rollback
+    
+    Return the pipeline stages and tools.
+    """
+    print("\n" + "=" * 60)
+    print("EXERCISE 9: CI/CD Pipeline for Data Platform")
+    print("=" * 60)
+    
+    pipeline_stages = {
+        "continuous_integration": {
+            "trigger": "On pull request to main branch",
+            "stages": [
+                {
+                    "name": "Code Quality",
+                    "tools": ["black", "flake8", "mypy", "pylint"],
+                    "checks": ["formatting", "linting", "type checking"]
+                },
+                {
+                    "name": "Unit Tests",
+                    "tools": ["pytest", "coverage"],
+                    "checks": ["test pass", "coverage > 80%"]
+                },
+                {
+                    "name": "Integration Tests",
+                    "tools": ["docker-compose", "testcontainers"],
+                    "checks": ["services start", "API endpoints work"]
+                },
+                {
+                    "name": "Security Scan",
+                    "tools": ["trivy", "snyk", "bandit"],
+                    "checks": ["vulnerabilities", "secrets detection"]
+                }
+            ]
+        },
+        "continuous_delivery": {
+            "trigger": "On merge to main branch",
+            "stages": [
+                {
+                    "name": "Build Docker Images",
+                    "tools": ["docker build", "docker-compose build"],
+                    "artifacts": ["ml_api:latest", "airflow_custom:latest"]
+                },
+                {
+                    "name": "Push to Registry",
+                    "tools": ["docker push"],
+                    "registry": "AWS ECR or Docker Hub"
+                },
+                {
+                    "name": "Deploy to Staging",
+                    "tools": ["terraform", "ansible", "kubernetes"],
+                    "environment": "Staging cluster"
+                },
+                {
+                    "name": "Run Acceptance Tests",
+                    "tools": ["pytest e2e", "selenium"],
+                    "checks": ["full pipeline works", "performance meets SLA"]
+                }
+            ]
+        },
+        "continuous_deployment": {
+            "trigger": "Manual approval or automated canary",
+            "stages": [
+                {
+                    "name": "Deploy to Production",
+                    "strategy": "Blue-green or canary deployment",
+                    "rollback_plan": "Automatic if metrics degrade"
+                },
+                {
+                    "name": "Database Migrations",
+                    "tools": ["alembic", "flyway"],
+                    "strategy": "Backward compatible migrations first"
+                },
+                {
+                    "name": "ML Model Deployment",
+                    "tools": ["MLflow", "Seldon Core"],
+                    "strategy": "A/B testing with shadow traffic"
+                },
+                {
+                    "name": "Post-deployment Verification",
+                    "checks": ["health checks pass", "metrics normal", "alerts silent"]
+                }
+            ]
+        }
+    }
+    
+    tools_ecosystem = {
+        "version_control": "Git (GitHub/GitLab)",
+        "ci_cd_server": "GitHub Actions / GitLab CI / Jenkins",
+        "container_registry": "Docker Hub / ECR / GCR",
+        "infrastructure_as_code": "Terraform / CloudFormation",
+        "orchestration": "Kubernetes / Docker Swarm",
+        "monitoring": "Prometheus / Grafana",
+        "secret_management": "HashiCorp Vault / AWS Secrets Manager"
+    }
+    
+    return {
+        "pipeline_stages": pipeline_stages,
+        "tools_ecosystem": tools_ecosystem,
+        "sample_github_actions_workflow": {
+            "name": "Data Platform CI/CD",
+            "on": ["push", "pull_request"],
+            "jobs": ["test", "build", "deploy_staging", "deploy_production"]
+        },
+        "rollback_strategies": [
+            "Automated rollback if health checks fail within 5 minutes",
+            "Database migration rollback scripts",
+            "Model version fallback to previous version",
+            "Traffic shifting back to old service version"
+        ]
+    }
+
+
+def exercise_10_project_integration_presentation() -> Dict[str, Any]:
+    """
+    Exercise 10: Project Integration and Presentation
+    
+    Plan the final integration and presentation of the capstone project:
+    1. End-to-end system demonstration
+    2. Documentation and architecture diagrams
+    3. Performance benchmarking
+    4. Lessons learned and improvements
+    5. Business impact presentation
+    
+    Return the presentation structure and success criteria.
+    """
+    print("\n" + "=" * 60)
+    print("EXERCISE 10: Project Integration and Presentation")
+    print("=" * 60)
+    
+    presentation_structure = {
+        "executive_summary": [
+            "Business problem solved",
+            "Key achievements and metrics",
+            "ROI and business impact"
+        ],
+        "architecture_overview": [
+            "System diagram with data flow",
+            "Technology choices and rationale",
+            "Scalability and reliability features"
+        ],
+        "live_demonstration": [
+            "Data generation and ingestion",
+            "ETL pipeline execution",
+            "ML model prediction",
+            "API dashboard interaction"
+        ],
+        "technical_deep_dive": [
+            "Challenging problems solved",
+            "Innovative solutions implemented",
+            "Performance optimization techniques"
+        ],
+        "results_and_metrics": [
+            "System performance benchmarks",
+            "Data quality improvements",
+            "ML model accuracy and business impact",
+            "Cost optimization achievements"
+        ],
+        "future_roadmap": [
+            "Next features to implement",
+            "Scalability improvements",
+            "Technology upgrades planned"
+        ]
+    }
+    
+    success_criteria = {
+        "technical": [
+            "All services run without errors",
+            "End-to-end latency < 2 minutes",
+            "ML model accuracy > 85%",
+            "API availability > 99.9%"
+        ],
+        "business": [
+            "Churn prediction enables proactive retention",
+            "Data platform reduces manual reporting by 80%",
+            "System handles 10x current load",
+            "Total cost of ownership within budget"
+        ],
+        "presentation": [
+            "Clear explanation of technical concepts",
+            "Engaging live demonstration",
+            "Professional documentation",
+            "Confident Q&A handling"
+        ]
+    }
+    
+    documentation_artifacts = [
+        "Architecture diagrams (draw.io, Lucidchart)",
+        "API documentation (OpenAPI/Swagger)",
+        "Data dictionary and schema documentation",
+        "Deployment and operations runbooks",
+        "Troubleshooting guide",
+        "User training materials"
+    ]
+    
+    return {
+        "presentation_structure": presentation_structure,
+        "success_criteria": success_criteria,
+        "documentation_artifacts": documentation_artifacts,
+        "demo_script": [
+            "1. Start all services using docker-compose",
+            "2. Generate new customer data",
+            "3. Trigger Airflow ETL pipeline",
+            "4. Show data in warehouse tables",
+            "5. Train/update ML model",
+            "6. Make real-time churn prediction via API",
+            "7. Display results in dashboard"
+        ],
+        "qa_preparation": [
+            "Common technical questions about architecture",
+            "Business value justification",
+            "Cost and scalability considerations",
+            "Security and compliance aspects"
+        ]
+    }
+
+
+def main() -> Dict[str, Any]:
+    """
+    Main function to run all exercises and collect results.
+    
+    Returns a dictionary with results from all exercises.
+    """
+    print("=" * 60)
+    print("CAPSTONE PRACTICE EXERCISES - CUSTOMER ANALYTICS PLATFORM")
+    print("=" * 60)
+    
+    exercises = [
+        ("End-to-End Architecture", exercise_1_end_to_end_architecture),
+        ("Airflow DAG Design", exercise_2_airflow_dag_design),
+        ("Star Schema Design", exercise_3_star_schema_design),
+        ("ML Feature Engineering", exercise_4_ml_feature_engineering),
+        ("API Design for Analytics", exercise_5_api_design_for_analytics),
+        ("Docker Containerization", exercise_6_docker_containerization),
+        ("Monitoring and Observability", exercise_7_monitoring_observability),
+        ("Testing and Data Quality", exercise_8_testing_data_quality),
+        ("CI/CD Pipeline", exercise_9_ci_cd_pipeline),
+        ("Project Integration and Presentation", exercise_10_project_integration_presentation)
+    ]
+    
+    results = {}
+    
+    for name, func in exercises:
+        try:
+            print(f"\nRunning: {name}")
+            result = func()
+            results[name] = result
+            
+            # Print summary
+            print(f"  Status: COMPLETED")
+            if isinstance(result, dict):
+                print(f"  Keys: {list(result.keys())}")
+        except Exception as e:
+            print(f"  Status: FAILED - {str(e)}")
+            results[name] = {"error": str(e)}
+    
+    print("\n" + "=" * 60)
+    print("SUMMARY")
+    print("=" * 60)
+    
+    completed = sum(1 for r in results.values() if "error" not in r)
+    print(f"Exercises completed: {completed}/{len(exercises)}")
+    
+    # Save results to file
+    import json
+    with open("practice_exercises_results.json", "w") as f:
+        json.dump(results, f, indent=2, default=str)
+    
+    print(f"\nResults saved to: practice_exercises_results.json")
+    print("\nNext steps:")
+    print("1. Implement the TODO sections in each exercise")
+    print("2. Test your implementations")
+    print("3. Compare with the expected outputs")
+    print("4. Review the GOTCHAS_BEST_PRACTICES.md file")
+    print("5. Study the INTERVIEW_QUESTIONS.md file")
+    
+    return results
+
+
+if __name__ == "__main__":
+    main()
