@@ -1,0 +1,39 @@
+# Advanced Python Project Dependencies
+
+# Core Python
+python>=3.8
+
+# Async and Performance
+aiohttp>=3.9.0  # For async HTTP examples
+httpx>=0.25.0   # Modern async HTTP client
+
+# Profiling and Optimization
+line-profiler>=4.0.0
+memory-profiler>=0.61.0
+pytest-benchmark>=4.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+
+# Development Tools
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+isort>=5.12.0
+
+# Documentation
+sphinx>=7.0.0
+sphinx-rtd-theme>=1.3.0
+
+# Optional: For performance comparison
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Optional: For Cython examples (if included)
+cython>=0.29.0
+
+# Optional: For advanced examples
+redis>=4.5.0  # For async Redis examples
+psutil>=5.9.0  # For system monitoring
